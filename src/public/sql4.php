@@ -41,7 +41,7 @@ class dataSort
     return "4月の収入の合計：". $sum;
   }
 
-  public function  may_total(): string
+  public function  maytotal(): string
   {
     $sum = 0;
     foreach($this->incomes as $value) {

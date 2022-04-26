@@ -8,10 +8,10 @@ $statement = $pdo->prepare($sql);
 $statement->execute();
 $incomes = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-$data_sort = new data_sort($incomes);
-echo $data_sort->april_total() . "<br>";
-echo $data_sort->may_total() . "<br>";
-echo $data_sort->june_total() . "<br>";
+$data_sort = new datasort($incomes);
+echo $data_sort->apriltotal() . "<br>";
+echo $data_sort->maytotal() . "<br>";
+echo $data_sort->junetotal() . "<br>";
 echo "<br>";
 echo "月順にsortして月ごとの収入の合計を一覧表示" . "<br>";
 foreach($data_sort->months_sort() as $key=>$value){
@@ -19,38 +19,7 @@ foreach($data_sort->months_sort() as $key=>$value){
 }
 
 
-// print_r($incomes);
-// print_r(explode("-", $incomes["accrual_date"]))."<br>";
-// var_dump();
-// var_dump($incomes["accrual_date"]);
-// foreach($incomes as $key => $row) {
-//   print_r($date[$key] = $row["accrual_date"]);
-// }
-// array_multisort($date, SORT_ASC, $incomes);
-// $result = [
-//   "01" =>0,
-//   "02" =>0,
-//   "03" =>0,
-//   "04" =>0,
-//   "05" =>0,
-//   "06" =>0,
-//   "07" =>0,
-//   "08" =>0,
-//   "09" =>0,
-//   "10" =>0,
-//   "11" =>0,
-//   "12" =>0
-// ];
-// foreach($incomes as $value) {
-//   [$year, $months, $date] = explode("-", $value['accrual_date']);
-//   $result[$months] += $value['amount'];
-// }
-// foreach($result as $key => $value) {
-//   echo $key . "月：" . $value; 
-//   echo "<br>";
-// }
-
-class data_sort
+class datasort
 {
   private $incomes;
 
@@ -59,7 +28,7 @@ class data_sort
     $this->incomes = $incomes;
   }
 
-  public function april_total(): string
+  public function apriltotal(): string
   {
     $sum = 0;
     foreach($this->incomes as $value) {
@@ -70,7 +39,7 @@ class data_sort
     return "4月の収入の合計：". $sum;
   }
 
-  public function  may_total(): string
+  public function  maytotal(): string
   {
     $sum = 0;
     foreach($this->incomes as $value) {
@@ -91,21 +60,9 @@ class data_sort
     }
     return "6月の収入の合計：". $sum;
   }
-  public function months_sort(): array
+  public function monthssort(): array
   { 
     $result = [
-      "01" =>0,
-      "02" =>0,
-      "03" =>0,
-      "04" =>0,
-      "05" =>0,
-      "06" =>0,
-      "07" =>0,
-      "08" =>0,
-      "09" =>0,
-      "10" =>0,
-      "11" =>0,
-      "12" =>0
     ];
     foreach($this->incomes as $value) {
       [$year, $months, $date] = explode("-", $value['accrual_date']);

@@ -33,7 +33,7 @@ class dataSort
   public function aprilTotal(): string
   {
     $sum = 0;
-    foreach($this->incomes as $value) {
+    foreach ($this->incomes as $value) {
       if (preg_match("/2022-04/", $value['accrual_date'])){
         $sum += $value['amount'];
       }
@@ -41,10 +41,10 @@ class dataSort
     return "4月の収入の合計：". $sum;
   }
 
-  public function  maytotal(): string
+  public function maytotal(): string
   {
     $sum = 0;
-    foreach($this->incomes as $value) {
+    foreach ($this->incomes as $value) {
       if (preg_match("/2022-05/", $value['accrual_date'])){
         $sum += $value['amount'];
       }
@@ -52,10 +52,10 @@ class dataSort
     return "5月の収入の合計：". $sum;
   }
 
-  public function  juneTotal(): string
+  public function juneTotal(): string
   {
     $sum = 0;
-    foreach($this->incomes as $value) {
+    foreach ($this->incomes as $value) {
       if (preg_match("/2022-06/", $value['accrual_date'])){
         $sum += $value['amount'];
       }
@@ -65,7 +65,7 @@ class dataSort
   public function monthsSort(): array
   { 
     $result = [];
-    foreach($this->incomes as $value) {
+    foreach ($this->incomes as $value) {
       [$year, $months, $date] = explode("-", $value['accrual_date']);
       $result[$months] += $value['amount'];
     }

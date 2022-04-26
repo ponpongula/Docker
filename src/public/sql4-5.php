@@ -30,7 +30,7 @@ class data_sort
     $this->incomes = $incomes;
   }
 
-  public function revenue_highest_first(): array
+  public function revenueHighestFirst(): array
   { 
     $result = [
     ];

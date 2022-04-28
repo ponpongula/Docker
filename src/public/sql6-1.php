@@ -7,20 +7,15 @@ $sql = "SELECT * FROM incomes";
 $statement = $pdo->prepare($sql);
 $statement->execute();
 $incomes = $statement->fetchAll(PDO::FETCH_ASSOC);
-// print_r($incomes);
-// var_dump($incomes);
 $month_sort = new MonthSort($incomes);
 echo "前月の収入都の差分を一覧表示してください" . "<br>";
 foreach ($month_sort->monthSort() as $value)
 {
   $value1[] = $value;
 }
-// print_r($value1);
-// foreach ($value1 as $key=>$difference){
   for ($i=0; $i<=10; $i++){
       $answer[] = $value1[$i] -=$value1[$i+1];
     }
-    // print_r($answer);
     echo "1月と2月の差分:" . abs($answer[0]) . "円" . "<br>";
     echo "2月と3月の差分:" . abs($answer[1]) . "円"  . "<br>";
     echo "3月と4月の差分:" . abs($answer[2]) . "円"  . "<br>";
@@ -32,7 +27,7 @@ foreach ($month_sort->monthSort() as $value)
     echo "9月と10月の差分:" . abs($answer[8]) . "円"  . "<br>";
     echo "10月と11月の差分:" . abs($answer[9]) . "円"  . "<br>";
     echo "11月と12月の差分:" . abs($answer[10]) . "円"  . "<br>";
-    
+
 class MonthSort
 {
   private $incomes;

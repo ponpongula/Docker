@@ -8,20 +8,20 @@ $statement = $pdo->prepare($sql);
 $statement->execute();
 $incomes = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-$dataSort = new dataSort($incomes);
+$DataSort = new DataSort($incomes);
 echo "収出の高い順にsortして月ごとの収入の合計を一覧表示" . "<br>";
-foreach ($dataSort->revenueHighestFirst() as $key => $value){
+foreach ($DataSort->revenueHighestFirst() as $key => $value) {
   echo $key . "月：" . $value . "<br>"; 
 }
 
 echo  "<br>"; 
 
 echo "収出の低い順にsortして月ごとの収入の合計を一覧表示" . "<br>";
-foreach ($dataSort->revenueLowFirst() as $key => $value){
+foreach ($dataSort->revenueLowFirst() as $key => $value) {
   echo $key . "月：" . $value . "<br>"; 
 }
 
-class dataSort
+class DataSort
 {
   private $incomes;
 

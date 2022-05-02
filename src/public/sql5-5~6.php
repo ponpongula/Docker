@@ -10,13 +10,13 @@ $spendings = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 $conditional_processing = new ConditionalProcessing($spendings);
 echo "支出の低い順sortして月ごとの支出の合計を一覧表示。ただし、支出日に5が含まれているときだけ100円引いてください。" . "<br>";
-foreach($conditional_processing->revenueHighestFirst() as $key=>$value)
+foreach ($conditional_processing->revenueHighestFirst() as $key=>$value)
 {
   echo $key . "月の支出の合計：" . $value . "<br>"; 
 }
 echo "<br>";
 echo "支出の高い順sortして月ごとの支出の合計を一覧表示。ただし、支出日に5が含まれているときだけ3000円引いてください。" . "<br>";
-foreach($conditional_processing->revenueLowFirst() as $key=>$value)
+foreach ($conditional_processing->revenueLowFirst() as $key=>$value)
 {
   echo $key . "月の支出の合計：" . $value . "<br>"; 
 }
@@ -33,10 +33,10 @@ class ConditionalProcessing
   public function revenueHighestFirst(): array
   { 
     $result = [];
-    foreach($this->spendings as $value) {
+    foreach ($this->spendings as $value) {
       [$year, $months, $date] = explode("-", $value['accrual_date']);
       $result[$months] += $value['amount'];
-      if(preg_match("/5/", $date)){
+      if (preg_match("/5/", $date)) {
         $result[$months] -= 100;
         }
     }
@@ -47,10 +47,10 @@ class ConditionalProcessing
   public function revenueLowFirst(): array
   { 
     $result = [];
-    foreach($this->spendings as $value) {
+    foreach ($this->spendings as $value) {
       [$year, $months, $date] = explode("-", $value['accrual_date']);
       $result[$months] += $value['amount'];
-      if(preg_match("/5/", $date)){
+      if(preg_match("/5/", $date)) {
         $result[$months] -= 3000;
         }
     }

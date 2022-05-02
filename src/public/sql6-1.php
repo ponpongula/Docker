@@ -13,9 +13,12 @@ foreach ($month_sort->monthSort() as $value)
 {
   $value1[] = $value;
 }
-  for ($i=0; $i<=10; $i++){
-      $answer[] = $value1[$i] -=$value1[$i+1];
-    }
+
+for ($i=0; $i<=10; $i++)
+{
+  $answer[] = $value1[$i] -=$value1[$i+1];
+}
+
     echo "1月と2月の差分:" . abs($answer[0]) . "円" . "<br>";
     echo "2月と3月の差分:" . abs($answer[1]) . "円"  . "<br>";
     echo "3月と4月の差分:" . abs($answer[2]) . "円"  . "<br>";

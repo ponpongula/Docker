@@ -9,13 +9,13 @@ $statement->execute();
 $spendings = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 
-$conditional_processing = new ConditionalProcessing($spendings);
-echo $conditional_processing->julySpending() ."<br>";
-echo $conditional_processing->augustSpending() ."<br>";
-echo $conditional_processing->septemberSpending() ."<br>";
+$conditionalProcessing = new ConditionalProcessing($spendings);
+echo $conditionalProcessing->julySpending() ."<br>";
+echo $conditionalProcessing->augustSpending() ."<br>";
+echo $conditionalProcessing->septemberSpending() ."<br>";
 echo "<br>";
 echo "月順にsortして月ごとの支出の合計を一覧表示。ただし、支出日に5が含まれているときだけ1500円引いてください。" . "<br>";
-foreach ($conditional_processing->monthsSort() as $key=>$value) {
+foreach ($conditionalProcessing->monthsSort() as $key=>$value) {
   echo $key . "月の支出の合計：" . $value . "<br>"; 
 }
 

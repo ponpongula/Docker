@@ -7,15 +7,13 @@ $sql = "SELECT * FROM incomes";
 $statement = $pdo->prepare($sql);
 $statement->execute();
 $incomes = $statement->fetchAll(PDO::FETCH_ASSOC);
-$month_sort = new MonthSort($incomes);
+$monthSort = new MonthSort($incomes);
 echo "前月の収入都の差分を一覧表示してください" . "<br>";
-foreach ($month_sort->monthSort() as $value)
-{
+foreach ($monthSort->monthSort() as $value) {
   $value1[] = $value;
 }
 
-for ($i=0; $i<=10; $i++)
-{
+for ($i=0; $i<=10; $i++) {
   $answer[] = $value1[$i] -=$value1[$i+1];
 }
 

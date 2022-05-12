@@ -10,7 +10,7 @@ $sample3 = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 $result = [];
 foreach ($sample3 as $value) {
-  if (! ($value['id'] % 2) == 0) {
+  if (!($value['id'] % 2) == 0) {
     $result[] += $value['orange_num'];
    }
 }

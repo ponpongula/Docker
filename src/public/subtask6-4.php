@@ -13,12 +13,10 @@ foreach ($sample4 as $value) {
   $num[] = $value['peach_num'];
 }
 
-for ($i=0; $i<3; $i++) {
+for ($i = 0; $i < 3; $i++) {
   $answer[] = $num[$i] -= $num[$i+1];
+  echo "id" . ($i+1) . "とid" . ($i+2) . "の差分:" . abs($answer[$i]) . "<br>";
 }
-echo "id1とid2の差分:" . abs($answer[0]) . "<br>";
-echo "id2とid3の差分:" . abs($answer[1]) . "<br>";
-echo "id3とid4の差分:" . abs($answer[2]) . "<br>";
 
 var_dump($answer);
 

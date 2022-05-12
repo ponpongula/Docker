@@ -8,8 +8,8 @@ $statement = $pdo->prepare($sql);
 $statement->execute();
 $sample2 = $statement->fetchAll(PDO::FETCH_ASSOC);
 $num = 0;
-foreach ($sample2 as $valeu) {
-  $num += $valeu['banana_num'];
+foreach ($sample2 as $value) {
+  $num += $value['banana_num'];
 }
 
 var_dump($num);

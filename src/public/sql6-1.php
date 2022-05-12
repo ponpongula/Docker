@@ -15,19 +15,8 @@ foreach ($monthSort->monthSort() as $value) {
 
 for ($i=0; $i<=10; $i++) {
   $answer[] = $value1[$i] -=$value1[$i+1];
+  echo $i+1 . "月と" . ($i+2) . "月の差分:" . abs($answer[$i]) . "円" . "<br>";
 }
-
-    echo "1月と2月の差分:" . abs($answer[0]) . "円" . "<br>";
-    echo "2月と3月の差分:" . abs($answer[1]) . "円"  . "<br>";
-    echo "3月と4月の差分:" . abs($answer[2]) . "円"  . "<br>";
-    echo "4月と5月の差分:" . abs($answer[3]) . "円"  . "<br>";
-    echo "5月と6月の差分:" . abs($answer[4]) . "円"  . "<br>";
-    echo "6月と7月の差分:" . abs($answer[5]) . "円"  . "<br>";
-    echo "7月と8月の差分:" . abs($answer[6]) . "円"  . "<br>";
-    echo "8月と9月の差分:" . abs($answer[7]) . "円"  . "<br>";
-    echo "9月と10月の差分:" . abs($answer[8]) . "円"  . "<br>";
-    echo "10月と11月の差分:" . abs($answer[9]) . "円"  . "<br>";
-    echo "11月と12月の差分:" . abs($answer[10]) . "円"  . "<br>";
 
 class MonthSort
 {
@@ -38,7 +27,7 @@ class MonthSort
     $this->incomes = $incomes;
   }
 
-  public function monthSort(): array
+  public function monthlySummary(): array
   {
     $result = [];
     foreach ($this->incomes as $value) {

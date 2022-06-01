@@ -14,8 +14,8 @@ foreach ($monthSort->monthlySummary() as $value) {
 }
 
 for ($i = 0; $i <= 10; $i++) {
-  $answer[] = $value1[$i] -= $value1[$i+1];
-  echo ($i+1) . "月と" . ($i+2) . "月の差分:" . abs($answer[$i]) . "円" . "<br>";
+  $answer[] = $value1[$i] -= $value1[$i + 1];
+  echo ($i + 1) . "月と" . ($i + 2) . "月の差分:" . abs($answer[$i]) . "円" . "<br>";
 }
 
 class MonthSort
